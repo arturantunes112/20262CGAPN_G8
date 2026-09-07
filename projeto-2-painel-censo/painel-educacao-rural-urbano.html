@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard da Educação</title>
+  <style>
+    :root { --ink:#1e293b; --muted:#64748b; --line:#d8e1eb; --canvas:#f4f7fb; --panel:#fff; --blue:#4472c4; --orange:#ed7d31; --gray:#a5a5a5; --yellow:#ffc000; --teal:#5b9bd5; --green:#70ad47; --purple:#8064a2; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--canvas); color:var(--ink); font-family:Calibri,Arial,sans-serif; }
+    header { background:#fff; border-bottom:1px solid var(--line); padding:18px max(20px,calc((100vw - 1280px)/2)); display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap; }
+    h1 { margin:0; color:#fff; font-size:clamp(1.25rem,2.6vw,1.8rem); font-weight:700; }
+    .title-box { min-width:min(100%,560px); padding:15px 24px; background:#1f4e79; border-radius:3px; text-align:center; }
+    label { display:grid; gap:6px; color:#365f91; font-size:.82rem; font-weight:700; }
+    select { min-width:160px; border:1px solid #9eafc2; border-radius:3px; padding:8px 10px; background:#fff; color:var(--ink); font:inherit; }
+    main { max-width:1280px; padding:24px 20px 44px; margin:auto; }
+    .indicators { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; margin:0 0 20px; }
+    .indicator { min-height:86px; padding:14px 16px; background:#fff; border:1px solid var(--line); border-left:5px solid var(--blue); border-radius:4px; box-shadow:0 2px 7px #1e293b0d; }
+    .indicator:nth-child(2) { border-left-color:var(--teal); }
+    .indicator:nth-child(3) { border-left-color:var(--orange); }
+    .indicator:nth-child(4) { border-left-color:var(--purple); }
+    .indicator span { display:block; color:var(--muted); font-size:.78rem; line-height:1.15; }
+    .indicator strong { display:block; margin-top:6px; color:#17365d; font-size:1.55rem; font-variant-numeric:tabular-nums; }
+    .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; }
+    .panel { overflow:hidden; background:var(--panel); border:1px solid var(--line); border-radius:4px; box-shadow:0 2px 7px #1e293b0d; }
+    .panel-heading { padding:15px 17px 0; }
+    h2 { margin:0; color:#1f4e79; font-size:1rem; font-weight:700; line-height:1.28; }
+    .chart-area { min-height:292px; padding:12px 17px 16px; }
+    .pie-layout { display:grid; grid-template-columns:205px 1fr; align-items:center; gap:18px; min-height:264px; }
+    .pie { width:190px; height:190px; border-radius:50%; margin:auto; position:relative; }
+    .pie::after { content:""; position:absolute; inset:48px; border-radius:50%; background:#fff; }
+    .legend { display:grid; gap:10px; }
+    .legend-row { display:grid; grid-template-columns:11px 1fr auto; align-items:center; gap:8px; font-size:.84rem; }
+    .swatch { width:11px; height:11px; border-radius:50%; }
+    .legend-row b { font-variant-numeric:tabular-nums; font-weight:600; }
+    .bars { height:255px; display:flex; align-items:end; gap:9px; padding:8px 2px 0; border-bottom:1px solid #aebdca; }
+    .bar-group { flex:1; min-width:32px; height:100%; display:flex; flex-direction:column; justify-content:end; align-items:center; gap:6px; }
+    .bar { width:min(48px,86%); min-height:2px; border-radius:2px 2px 0 0; background:linear-gradient(180deg,#5b9bd5,#4472c4); transition:height .25s ease; }
+    .bar-value { font-size:.76rem; font-weight:700; font-variant-numeric:tabular-nums; white-space:nowrap; }
+    .bar-label { min-height:31px; max-width:80px; text-align:center; overflow-wrap:anywhere; color:var(--muted); font-size:.69rem; line-height:1.1; }
+    .source { margin:18px 0 0; color:var(--muted); font-size:.76rem; }
+    @media (max-width:840px) { .grid { grid-template-columns:1fr; } .indicators { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+    @media (max-width:460px) { .pie-layout { grid-template-columns:1fr; } .pie { width:170px; height:170px; } .pie::after { inset:43px; } .chart-area { min-height:auto; } .bars { gap:5px; } .bar-label { font-size:.62rem; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="title-box"><h1>DADOS CENSO ESCOLAR 2024 SÃO PAULO</h1></div>
+    <label for="location">Localização
+      <select id="location"><option value="Urbana">Urbano</option><option value="Rural">Rural</option></select>
+    </label>
+  </header>
+  <main>
+    <section class="indicators" aria-label="Informações do recorte selecionado" aria-live="polite">
+      <article class="indicator"><span>Escolas no recorte</span><strong id="total-schools">—</strong></article>
+      <article class="indicator"><span>Escolas ativas</span><strong id="active-schools">—</strong></article>
+      <article class="indicator"><span>Escolas sem energia elétrica</span><strong id="without-energy">—</strong></article>
+      <article class="indicator"><span>Escolas sem água potável</span><strong id="without-water">—</strong></article>
+    </section>
+    <div class="grid" aria-live="polite">
+      <section class="panel"><div class="panel-heading"><h2>Quantidade das Escolas por Tipo de Dependência</h2></div><div class="chart-area"><div class="pie-layout"><div id="dependency-pie" class="pie" role="img" aria-label="Gráfico de pizza: escolas por tipo de dependência"></div><div id="dependency-legend" class="legend"></div></div></div></section>
+      <section class="panel"><div class="panel-heading"><h2>Distribuição da Quantidade de Escola por Tamanho</h2></div><div class="chart-area"><div id="size-bars" class="bars" role="img" aria-label="Gráfico de colunas: escolas por tamanho"></div></div></section>
+      <section class="panel"><div class="panel-heading"><h2>Distribuição da Situação da Escola no Momento da Pesquisa</h2></div><div class="chart-area"><div class="pie-layout"><div id="status-pie" class="pie" role="img" aria-label="Gráfico de pizza: situação das escolas"></div><div id="status-legend" class="legend"></div></div></div></section>
+      <section class="panel"><div class="panel-heading"><h2>Água Potável</h2></div><div class="chart-area"><div id="water-bars" class="bars" role="img" aria-label="Gráfico de colunas: água potável"></div></div></section>
+      <section class="panel"><div class="panel-heading"><h2>Coleta de Lixo</h2></div><div class="chart-area"><div class="pie-layout"><div id="waste-pie" class="pie" role="img" aria-label="Gráfico de pizza: escolas com e sem coleta de lixo"></div><div id="waste-legend" class="legend"></div></div></div></section>
+      <section class="panel"><div class="panel-heading"><h2>Disponibilidade de Energia Elétrica</h2></div><div class="chart-area"><div id="energy-bars" class="bars" role="img" aria-label="Gráfico de barras: escolas com e sem energia elétrica"></div></div></section>
+    </div>
+    <p class="source">Fonte: aba “Dashboard da Educação” e dados vinculados da planilha Simulador2.</p>
+  </main>
+  <script>
+    const model = {
+      Urbana: { info:{total:8019,active:7300,withoutEnergy:6,withoutWater:28}, dependency:{Privada:5135,Municipal:1623,Estadual:1256,Federal:5}, size:{Pequena:3137,"Média":1663,Grande:1244,INATIVA:786,Microescola:662,"Muito Grande":524,"Mega escola":3}, status:{Ativa:7300,Inativa:719}, water:{"Não":28,Sim:7272}, waste:{"Com coleta":6853,"Sem coleta":447}, energy:{"Possui energia":7294,"Sem energia":6} },
+      Rural: { info:{total:4,active:4,withoutEnergy:0,withoutWater:1}, dependency:{Municipal:2,Privada:2}, size:{Pequena:4}, status:{Ativa:4}, water:{"Não":1,Sim:3}, waste:{"Com coleta":4}, energy:{"Possui energia":4,"Sem energia":0} }
+    };
+    const colors = ['#4472c4','#ed7d31','#a5a5a5','#ffc000','#5b9bd5','#70ad47','#8064a2'];
+    const fmt = new Intl.NumberFormat('pt-BR');
+    const filter = document.getElementById('location');
+    const sum = values => Object.values(values).reduce((a,b) => a + b, 0);
+    const esc = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    function renderPie(pieId, legendId, values) {
+      const rows = Object.entries(values), total = sum(values); let start = 0;
+      const stops = rows.map(([name,value], index) => { const end = start + value / total * 360; const stop = `${colors[index]} ${start}deg ${end}deg`; start = end; return stop; });
+      document.getElementById(pieId).style.background = `conic-gradient(${stops.join(',')})`;
+      document.getElementById(legendId).innerHTML = rows.map(([name,value], index) => `<div class="legend-row"><i class="swatch" style="background:${colors[index]}"></i><span>${esc(name)}</span><b>${fmt.format(value)} · ${(value / total * 100).toFixed(1).replace('.',',')}%</b></div>`).join('');
+    }
+    function renderBars(id, values) {
+      const rows = Object.entries(values), max = Math.max(...rows.map(([,value]) => value));
+      document.getElementById(id).innerHTML = rows.map(([name,value], index) => `<div class="bar-group"><span class="bar-value">${fmt.format(value)}</span><i class="bar" style="height:${Math.max(3, value / max * 188)}px;background:linear-gradient(180deg,${colors[index % colors.length]},#4472c4)"></i><span class="bar-label">${esc(name)}</span></div>`).join('');
+    }
+    function render() {
+      const data = model[filter.value];
+      document.getElementById('total-schools').textContent = fmt.format(data.info.total);
+      document.getElementById('active-schools').textContent = fmt.format(data.info.active);
+      document.getElementById('without-energy').textContent = fmt.format(data.info.withoutEnergy);
+      document.getElementById('without-water').textContent = fmt.format(data.info.withoutWater);
+      renderPie('dependency-pie','dependency-legend',data.dependency); renderBars('size-bars',data.size); renderPie('status-pie','status-legend',data.status); renderBars('water-bars',data.water); renderPie('waste-pie','waste-legend',data.waste); renderBars('energy-bars',data.energy);
+    }
+    filter.addEventListener('change', render); render();
+  </script>
+</body>
+</html>
