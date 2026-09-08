@@ -5,6 +5,7 @@ Como usar: O usuário pode mexer no número de matrículas de acordo com a modal
 <img width="1171" height="702" alt="image" src="https://github.com/user-attachments/assets/4d9d6133-12a0-4e05-a700-2b874a4b997b" />
 <img width="1150" height="624" alt="image" src="https://github.com/user-attachments/assets/537f8cd5-f312-40c6-a432-4895c454ac5a" />
 <img width="1177" height="633" alt="image" src="https://github.com/user-attachments/assets/8aeb450e-4290-43e0-95dc-046a71808422" />
+Disclaimers: 
 
 
 
