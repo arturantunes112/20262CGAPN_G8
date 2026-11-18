@@ -9,7 +9,7 @@ Simular o repasse anual federal do PNAE por etapa de ensino e compará-lo ao cus
 Instale Python 3 e execute `python simulador_pnae.py` nesta pasta. Os dados do exemplo são constantes no topo do script; para outra escola, substitua matrículas, dias e custo dos alimentos.
 
 ## Escola simulada
-- **EMEB Vila Quitaúna**, Osasco/SP (referência do exercício).
+- **EMEF Marioma Pereira da Silva**, Alta Floresta D'Oeste/RO (referência do exercício).
 - Matrículas de **teste**, não verificadas no Censo 2024: creche 60, pré-escola 80, fundamental 50.
 - Código INEP, dependência administrativa e situação de funcionamento: **a confirmar**.
 - Para validar: consultar os microdados do Censo Escolar 2024, filtrar por nome/código da escola, UF, município, situação e dependência, e extrair matrículas por etapa. Registrar zero para etapas não oferecidas.
@@ -23,10 +23,10 @@ Instale Python 3 e execute `python simulador_pnae.py` nesta pasta. Os dados do e
 | Indicador | Resultado |
 |---|---:|
 | Matrículas | 190 |
-| Repasse anual | R$ 37.660,00 |
-| Custo alimentar hipotético | R$ 59.660,00 |
-| Cobertura hipotética | 63,12% |
-| Complementação hipotética | R$ 22.000,00 |
+| Repasse anual | R$ 31.920,00 |
+| Custo alimentar hipotético | R$ 87.920,00 |
+| Cobertura hipotética | 36,31% |
+| Complementação hipotética | R$ 56.000,00 |
 
 O porte **Pequena** reproduz o exemplo da professora, mas os limites da função são provisórios e precisam ser confirmados na aula.
 
@@ -62,3 +62,7 @@ Adicionar capturas reais da execução, após validar os dados e testar a cobert
 - valentina e Albert ajudaram no github.
 
 
+
+
+## Dados reais da escola selecionada
+Fonte: `Censo_2024_Excel.xlsx` enviado pelo usuário (Censo Escolar 2024). EMEF Marioma Pereira da Silva, INEP **11050594**, Alta Floresta D'Oeste/RO. Dependência **3 = municipal**; situação **1 = em atividade**. Campos: `QT_MAT_BAS=280`, `QT_MAT_INF=0`, `QT_MAT_FUND=280`. Simulação: creche 0, pré-escola 0, fundamental 280, 200 dias. Repasse R$ 31.920,00; custo anual **hipotético** R$ 87.920,00; cobertura 36,31%; complementação R$ 56.000,00. Porte Grande pelo critério provisório. O valor R$ 1,57 por refeição não é um preço de ingredientes pesquisado.
