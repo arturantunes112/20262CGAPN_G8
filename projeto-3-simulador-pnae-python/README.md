@@ -33,7 +33,7 @@ O porte **Pequena** reproduz o exemplo da professora, mas os limites da função
 ## Resultados e reflexão
 No cenário hipotético, o repasse federal não cobre o custo assumido dos ingredientes. Caso não haja complementação estadual ou municipal, a aquisição de gêneros alimentícios pode ser afetada. Não se pode concluir isso sobre a escola real sem validar os dados. A versão final deve discutir os resultados com as leituras indicadas nas orientações (Todos Pela Educação, Observatório da Alimentação Escolar e Brasil de Fato).
 
-**Limitações:** matrículas de 2024 versus valores per capita de 2026; apenas três etapas; uma refeição por aluno/dia; mesmo custo para todas as etapas; exclui mão de obra, gás e estrutura.
+
 
 ## Organização do programa
 | Parte | Função | Relação com o Projeto 1 |
@@ -61,7 +61,8 @@ Adicionar capturas reais da execução, após validar os dados e testar a cobert
 
 ## Participação do Grupo
 - Aprendizados: **preencher após revisão coletiva**.
-- Integrantes e contribuições: **preencher com informações reais**.
+- Integrantes e contribuições: Artur José,Rogerio Gialuissi e Frederico fizeram o codigo de simulaçaão e o github
+- José Ronaldo fez o video e tirou os prints
+- valentina e Albert ajudaram no github.
 
-## Pendências
-Validar escola/matrículas/código INEP; pesquisar custo alimentar; confirmar limites de porte; executar testes e capturar prints; completar reflexão e participação. Nenhum arquivo fora desta pasta será modificado.
+
