@@ -64,7 +64,8 @@ def calcular_cobertura(totalMatriculas, diasLetivos, custoRefeicao, totalRepasse
 # Sem argumentos: roda a escola real do Censo e preserva o print do projeto.
 # --teste: reproduz o exemplo do Projeto 1 (190 alunos, R$ 37.660,00).
 # --interativo: permite informar uma escola e suas matrículas pelo terminal.
-if len(sys.argv) > 1:
+# Argumentos internos do Jupyter (ex.: -f) são ignorados.
+if len(sys.argv) > 1 and sys.argv[1] in ("--teste", "--interativo"):
     modo = sys.argv[1]
     if modo == "--teste":
         ESCOLA = "EMEB Vila Quitaúna (escola de teste)"
@@ -88,9 +89,6 @@ if len(sys.argv) > 1:
         MATRICULAS_CRECHE = ler_numero("Matrículas de creche: ")
         MATRICULAS_PRE_ESCOLA = ler_numero("Matrículas de pré-escola: ")
         MATRICULAS_FUNDAMENTAL = ler_numero("Matrículas de ensino fundamental: ")
-    else:
-        print("Modo inválido. Use --teste ou --interativo, ou execute sem argumentos.")
-        sys.exit(1)
 
 print("*** SIMULADOR PNAE - CENSO ESCOLAR 2024 ***")
 print("Escola:", ESCOLA)
