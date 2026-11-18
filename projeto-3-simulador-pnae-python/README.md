@@ -1,68 +1,89 @@
 # Projeto 3 — Simulador de Repasse do PNAE em Python
 
-> **Versão demonstrativa — matrículas e faixas de porte pendentes de validação; custo alimentar hipotético.**
+> **Dados de matrículas verificados na planilha Censo Escolar 2024 enviada pelo grupo.** A estimativa de custo alimentar e as faixas de porte continuam provisórias.
 
 ## Objetivo
-Simular o repasse anual federal do PNAE por etapa de ensino e compará-lo ao custo estimado dos gêneros alimentícios de uma refeição diária por estudante.
+Simular o repasse anual federal do PNAE por etapa de ensino e compará-lo a uma hipótese de custo dos ingredientes de uma refeição por aluno por dia letivo.
 
-## Como usar
-Instale Python 3 e execute `python simulador_pnae.py` nesta pasta. Os dados do exemplo são constantes no topo do script; para outra escola, substitua matrículas, dias e custo dos alimentos.
+## Como executar
+Com Python 3, execute `python simulador_pnae.py` nesta pasta. Os parâmetros e os dados da escola estão no início do arquivo. O programa não precisa de bibliotecas externas.
 
-## Escola simulada
-- **EMEF Marioma Pereira da Silva**, Alta Floresta D'Oeste/RO (referência do exercício).
-- Matrículas de **teste**, não verificadas no Censo 2024: creche 60, pré-escola 80, fundamental 50.
-- Código INEP, dependência administrativa e situação de funcionamento: **a confirmar**.
-- Para validar: consultar os microdados do Censo Escolar 2024, filtrar por nome/código da escola, UF, município, situação e dependência, e extrair matrículas por etapa. Registrar zero para etapas não oferecidas.
+## Escola escolhida e fonte dos dados
+- **Nome:** EMEF Marioma Pereira da Silva
+- **Código INEP:** 11050594
+- **Município/UF:** Alta Floresta D'Oeste / RO
+- **Dependência administrativa:** 3 — Municipal
+- **Situação de funcionamento:** 1 — Em atividade
+- **Creche:** 0 matrícula
+- **Pré-escola:** 0 matrícula
+- **Ensino fundamental:** 280 matrículas
+- **Total da educação básica:** 280 matrículas
+- **Dias letivos usados na simulação:** 200
 
-## Parâmetros e custo dos alimentos
-- Repasse 2026 por aluno/dia: creche R$ 1,57; pré-escola R$ 0,82; fundamental R$ 0,57.
-- Fonte oficial a documentar: resolução do FNDE referente aos valores de 2026.
-- **R$ 1,57 por refeição é apenas uma hipótese solicitada para o exercício.** Esse número corresponde ao repasse federal de creche/ensino integral de 2026, e NÃO a um custo pesquisado dos ingredientes em São Paulo. Para cumprir o enunciado, ainda é preciso pesquisar o custo dos alimentos por refeição com fonte, link, data e justificativa.
+**Fonte:** planilha `Censo_2024_Excel.xlsx` enviada pelo usuário, aba `Microdados`, registro `CO_ENTIDADE = 11050594`. Campos conferidos: `NO_ENTIDADE`, `CO_ENTIDADE`, `NO_MUNICIPIO`, `SG_UF`, `TP_DEPENDENCIA`, `TP_SITUACAO_FUNCIONAMENTO`, `QT_MAT_BAS`, `QT_MAT_INF` e `QT_MAT_FUND`. Como `QT_MAT_INF = 0`, as matrículas de creche e pré-escola são zero. `QT_MAT_FUND = 280`.
 
-## Resultados ilustrativos (200 dias letivos)
+## Parâmetros do simulador
+| Parâmetro | Valor |
+|---|---:|
+| Repasse federal por aluno/dia — creche | R$ 1,57 |
+| Repasse federal por aluno/dia — pré-escola | R$ 0,82 |
+| Repasse federal por aluno/dia — ensino fundamental | R$ 0,57 |
+| Custo **hipotético** dos ingredientes por refeição | R$ 1,57 |
+| Refeições por aluno/dia | 1 |
+| Dias letivos | 200 |
+
+**Atenção:** R$ 1,57 é um valor de **repasse federal para creche**, não um preço de compra de ingredientes pesquisado em São Paulo ou Rondônia. Ele foi mantido como **hipótese numérica solicitada pelo usuário**. Para satisfazer integralmente a exigência de pesquisa de custo alimentar, ainda é preciso substituir esse parâmetro por um custo documentado de ingredientes, com fonte, data e justificativa. Não incluir mão de obra, gás ou outros custos operacionais nessa estimativa de ingredientes.
+
+## Fórmulas
+- Repasse por etapa = matrículas da etapa × dias letivos × repasse por aluno/dia.
+- Repasse total = soma dos repasses das etapas.
+- Custo anual hipotético = total de matrículas × dias letivos × custo hipotético por refeição.
+- Cobertura (%) = repasse total ÷ custo anual hipotético × 100, quando o custo for positivo.
+- Complementação = máximo entre zero e (custo anual hipotético − repasse total).
+
+## Resultado com a escola selecionada
 | Indicador | Resultado |
 |---|---:|
-| Matrículas | 190 |
-| Repasse anual | R$ 31.920,00 |
-| Custo alimentar hipotético | R$ 87.920,00 |
-| Cobertura hipotética | 36,31% |
-| Complementação hipotética | R$ 56.000,00 |
+| Matrículas | 280 |
+| Porte pelo critério provisório do código | Grande |
+| Repasse creche | R$ 0,00 |
+| Repasse pré-escola | R$ 0,00 |
+| Repasse fundamental | R$ 31.920,00 |
+| **Repasse anual total** | **R$ 31.920,00** |
+| Custo anual **hipotético** dos ingredientes | R$ 87.920,00 |
+| Cobertura **hipotética** do repasse | 36,31% |
+| Complementação **hipotética** | R$ 56.000,00 |
 
-O porte **Pequena** reproduz o exemplo da professora, mas os limites da função são provisórios e precisam ser confirmados na aula.
+O repasse cobre 36,31% do custo **assumido neste cenário**, não necessariamente do custo real da escola. Como as matrículas são de 2024, os valores de repasse são de 2026 e o custo por refeição é hipotético, não se deve interpretar o resultado como uma prestação de contas da escola ou do município.
 
-## Resultados e reflexão
-No cenário hipotético, o repasse federal não cobre o custo assumido dos ingredientes. Caso não haja complementação estadual ou municipal, a aquisição de gêneros alimentícios pode ser afetada. Não se pode concluir isso sobre a escola real sem validar os dados. A versão final deve discutir os resultados com as leituras indicadas nas orientações (Todos Pela Educação, Observatório da Alimentação Escolar e Brasil de Fato).
+## Critério de porte
+A função `classificar_porte` utiliza provisoriamente: até 50 matrículas = Micro; de 51 a 200 = Pequena; acima de 200 = Grande. **Essas faixas precisam ser confirmadas com a orientação da disciplina** antes da entrega final.
 
-
-
-## Organização do programa
+## Organização do código e relação com o Projeto 1
 | Parte | Função | Relação com o Projeto 1 |
 |---|---|---|
-| Parâmetros | Valores e matrículas | Células de entrada |
-| `ler_numero` | Validar inteiro | Validação |
-| `classificar_porte` | Classificar escola | Fórmula de porte |
-| `calcular_repasse` | Calcular por etapa | Fórmula de repasse |
-| `calcular_cobertura` | Custo, cobertura e diferença | Ampliação do simulador |
-| Programa principal | Exibir demonstrativo | Tela de simulação |
+| Parâmetros | Valores, escola e matrículas | Células de entrada |
+| `ler_numero` | Validação de inteiros (disponível para entrada interativa) | Validação de dados |
+| `classificar_porte` | Classificação do porte | Fórmula condicional |
+| `calcular_repasse` | Cálculo do repasse por etapa | Fórmula de repasse |
+| `calcular_cobertura` | Custo, cobertura e complementação | Ampliação do simulador |
+| Programa principal | Demonstrativo impresso | Tela de resultados |
 
-## Prints
-Adicionar capturas reais da execução, após validar os dados e testar a cobertura.
+## Reflexão e limitações
+A simulação ilustra como o repasse federal pode ser inferior ao custo de alimentação assumido, exigindo outras fontes de financiamento no cenário. O cálculo é sensível ao custo unitário e ao número de refeições servidas. Para a reflexão final, relacionar os resultados às três leituras exigidas pela disciplina (Todos Pela Educação, Observatório da Alimentação Escolar e Brasil de Fato), após conferência dos textos originais. A simulação abrange apenas creche, pré-escola e fundamental; não modela modalidades adicionais ou diferentes valores por jornada.
 
-## Uso de Inteligência Artificial
-- Ferramenta: ChatGPT (OpenAI).
-- Uso: elaboração e organização do  README
-  
+## Evidências da execução
+O arquivo `resultado_teste.txt` contém um demonstrativo textual. **Ainda é necessário anexar capturas reais do terminal com a execução atualizada**; um arquivo de texto não substitui o print solicitado.
 
+## Declaração de uso de Inteligência Artificial
+Ferramenta: ChatGPT (OpenAI). Uso: apoio na elaboração e revisão do código Python, na organização do README, na conferência dos dados da escola na planilha e na atualização dos arquivos do Projeto 3 no GitHub. Solicitações feitas incluíram: “veja os dados das escolas escolha uma e coloque no codigo” e “atualize o que for necessario no github”. Os integrantes devem revisar o resultado e registrar outras utilizações de IA, se houver.
 
+## Declaração de dados
+Matrículas e características da escola: planilha `Censo_2024_Excel.xlsx` (Censo Escolar 2024) enviada pelo grupo, com filtro pelo código INEP 11050594. Valores de repasse: parâmetros de 2026 informados no exercício/conversa; verificar a resolução oficial do FNDE na versão final. Custo por refeição: hipótese de R$ 1,57, **sem fonte de preço de ingredientes**, ainda pendente de substituição por referência documental.
 
-## Participação do Grupo
-- Aprendizados: **preencher após revisão coletiva**.
-- Integrantes e contribuições: Artur José,Rogerio Gialuissi e Frederico fizeram o codigo de simulaçaão e o github
-- José Ronaldo fez o video e tirou os prints
-- valentina e Albert ajudaram no github.
+## Participação do grupo
+- Artur José, Rogerio Gialuissi e Frederico: código de simulação e GitHub.
+- José Ronaldo: vídeo e capturas de tela.
+- Valentina e Albert: apoio no GitHub.
 
-
-
-
-## Dados reais da escola selecionada
-Fonte: `Censo_2024_Excel.xlsx` enviado pelo usuário (Censo Escolar 2024). EMEF Marioma Pereira da Silva, INEP **11050594**, Alta Floresta D'Oeste/RO. Dependência **3 = municipal**; situação **1 = em atividade**. Campos: `QT_MAT_BAS=280`, `QT_MAT_INF=0`, `QT_MAT_FUND=280`. Simulação: creche 0, pré-escola 0, fundamental 280, 200 dias. Repasse R$ 31.920,00; custo anual **hipotético** R$ 87.920,00; cobertura 36,31%; complementação R$ 56.000,00. Porte Grande pelo critério provisório. O valor R$ 1,57 por refeição não é um preço de ingredientes pesquisado.
+Os integrantes devem conferir a descrição das contribuições antes da entrega.
