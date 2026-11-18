@@ -1,6 +1,6 @@
 # Projeto 3 — Simulador de Repasse do PNAE em Python
 
-> **Versão demonstrativa — dados da escola, custo alimentar e faixas de porte pendentes de validação.**
+> **Versão demonstrativa — dados da escola, matrículas e faixas de porte pendentes de validação; custo alimentar baseado em referência externa.**
 
 ## Objetivo
 Simular o repasse anual federal do PNAE por etapa de ensino e compará-lo ao custo estimado dos gêneros alimentícios de uma refeição diária por estudante.
@@ -17,16 +17,16 @@ Instale Python 3 e execute `python simulador_pnae.py` nesta pasta. Os dados do e
 ## Parâmetros e custo dos alimentos
 - Repasse 2026 por aluno/dia: creche R$ 1,57; pré-escola R$ 0,82; fundamental R$ 0,57.
 - Fonte oficial a documentar: resolução do FNDE referente aos valores de 2026.
-- **R$ 3,50 por refeição é hipótese ilustrativa**, não um preço pesquisado. É obrigatório substituir por referência de custo dos **ingredientes** (valor, fonte, link, data, justificativa e ressalvas de comparabilidade), não confundir com repasse por aluno.
+- **R$ 4,50 por refeição**: mediana do custo direto dos ingredientes das refeições em Morro da Fumaça (SC), com dados de 2021, publicada em setembro de 2025 por Costa et al., *Cadernos de Saúde Pública*. Fonte: https://pmc.ncbi.nlm.nih.gov/articles/PMC12448751/ . É uma referência para simulação, não o custo observado em Osasco em 2026; diferenças de município, ano e etapa podem afetar o resultado.
 
 ## Resultados ilustrativos (200 dias letivos)
 | Indicador | Resultado |
 |---|---:|
 | Matrículas | 190 |
 | Repasse anual | R$ 37.660,00 |
-| Custo alimentar hipotético | R$ 133.000,00 |
-| Cobertura hipotética | 28,32% |
-| Complementação hipotética | R$ 95.340,00 |
+| Custo alimentar (referência externa) | R$ 171.000,00 |
+| Cobertura estimada | 22,02% |
+| Complementação estimada | R$ 133.340,00 |
 
 O porte **Pequena** reproduz o exemplo da professora, mas os limites da função são provisórios e precisam ser confirmados na aula.
 
@@ -57,7 +57,7 @@ Adicionar capturas reais da execução, após validar os dados e testar a cobert
 ## Fonte de Dados
 - INEP, Censo Escolar 2024: https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/censo-escolar
 - FNDE, valores per capita 2026: conferir e registrar link oficial da resolução.
-- Referência de custo dos alimentos: **pendente**.
+- Referência de custo dos alimentos: Costa et al. (2025), *Cadernos de Saúde Pública*, dados de 2021 de Morro da Fumaça/SC: https://pmc.ncbi.nlm.nih.gov/articles/PMC12448751/ . Valor mediano para refeições: R$ 4,50.
 
 ## Participação do Grupo
 - Aprendizados: **preencher após revisão coletiva**.
