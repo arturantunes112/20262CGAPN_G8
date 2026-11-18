@@ -50,14 +50,10 @@ Adicionar capturas reais da execução, após validar os dados e testar a cobert
 
 ## Uso de Inteligência Artificial
 - Ferramenta: ChatGPT (OpenAI).
-- Uso: elaboração e organização do código e README, cálculo de cobertura.
-- Exemplo de prompt real: "faça o codigo com as informaçoes dessa escola e do preco de alimentos que enviei, e corrija o porte das escolas se estiverm errados".
-- Ajustes manuais: **preencher com os ajustes efetivamente realizados pelo grupo**.
+- Uso: elaboração e organização do  README
+  
 
-## Fonte de Dados
-- INEP, Censo Escolar 2024: https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/censo-escolar
-- FNDE, valores per capita 2026: conferir e registrar link oficial da resolução.
-- Referência de custo dos alimentos: **pendente**. R$ 1,57 foi fornecido como valor de repasse, não como preço de refeição.
+
 
 ## Participação do Grupo
 - Aprendizados: **preencher após revisão coletiva**.
