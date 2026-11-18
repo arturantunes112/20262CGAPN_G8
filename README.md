@@ -17,3 +17,5 @@ No Projeto 3, utilizamos o Python para simular o repasse federal do PNAE e compa
 A escola utilizada na simulação principal é a **EMEF Marioma Pereira da Silva**, de **Alta Floresta D'Oeste (RO)**, código INEP **11050594**, identificada na planilha do **Censo Escolar 2024**. Os dados, as fontes, os resultados e o print da execução estão explicados no [README específico do Projeto 3](projeto-3-simulador-pnae-python/README.md).
 
 A simulação da **EMEB Vila Quitaúna (Osasco/SP)** é mantida como **teste do exercício original**, não como a escola real escolhida para o Projeto 3.
+
+- [Projeto 4 — Painel Interativo do Censo Escolar em Python](projeto-4-painel-censo-python/)
