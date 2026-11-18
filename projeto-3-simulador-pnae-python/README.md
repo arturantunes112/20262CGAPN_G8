@@ -12,7 +12,13 @@ Para executar o simulador, é preciso ter o Python 3 instalado. Depois, basta ba
 python simulador_pnae.py
 ```
 
-O programa já vem preenchido com os dados da escola escolhida, então **não faz perguntas durante a execução desta versão**. Ele mostra o nome da escola, as matrículas, o porte, o repasse federal, o custo estimado dos alimentos e a diferença que precisaria ser coberta por outras fontes. Para simular outra escola, basta alterar os parâmetros no início do código.
+O programa pode ser usado de três maneiras:
+
+- **Escola real do Projeto 3:** `python simulador_pnae.py`. Usa os dados do Censo 2024 e reproduz o resultado mostrado no print abaixo.
+- **Teste do Projeto 1:** `python simulador_pnae.py --teste`. Usa 60 matrículas de creche, 80 de pré-escola e 50 do fundamental, em 200 dias letivos. O resultado esperado é **R$ 37.660,00**, com porte **Pequena**. A EMEB Vila Quitaúna é apenas a identificação do exemplo didático, não uma escola validada na base do Censo.
+- **Preenchimento pelo usuário:** `python simulador_pnae.py --interativo`. O programa pergunta o nome da escola, o código INEP, município, UF, dependência, situação, dias letivos e matrículas nas três etapas. Os campos de matrículas e dias letivos devem receber **números inteiros não negativos**. Se a escola não oferecer uma etapa, digite **0**.
+
+Em qualquer modo, o programa apresenta o repasse federal, o custo estimado dos ingredientes, a porcentagem coberta e a complementação necessária no cenário simulado. O custo de referência permanece fixado em R$ 4,50 no início do código.
 
 ## Escola escolhida
 
@@ -79,9 +85,9 @@ No Projeto 1, usamos fórmulas do Excel para calcular o repasse e classificar o 
 | `calcular_repasse` | Calcula o repasse por etapa de ensino | Multiplicações usadas na planilha |
 | `calcular_cobertura` | Estima o custo anual, a porcentagem coberta e a diferença | Ampliação do simulador para analisar o custo dos alimentos |
 
-A função `ler_numero` continua no arquivo, mas não é chamada nesta versão porque as matrículas da escola já estão preenchidas.
+A função `ler_numero` é utilizada no modo `--interativo` para validar as matrículas e os dias letivos. Na execução padrão, os dados da escola real já estão preenchidos.
 
-O programa classifica a escola como **Grande**, com base em faixas provisórias definidas no código: Micro até 50 alunos, Pequena de 51 a 200 e Grande acima de 200. **Ainda precisamos confirmar se essas faixas são as mesmas estabelecidas em aula.**
+O programa classifica a escola real como **Grande** e o exemplo de 190 matrículas como **Pequena**, com base nas faixas usadas no código: Micro até 50 alunos, Pequena de 51 a 200 e Grande acima de 200. **Essas faixas ainda devem ser confirmadas com os critérios apresentados em aula.**
 
 ## Prints do resultado
 
@@ -89,7 +95,7 @@ A imagem abaixo mostra a execução do simulador com a escola real escolhida, in
 
 ![Execução do simulador PNAE para a EMEF Marioma Pereira da Silva](IMG_1799.jpeg)
 
-O arquivo `resultado_teste.txt` também registra os resultados calculados.
+O arquivo `resultado_teste.txt` também registra os resultados calculados. Para verificar o exemplo original da disciplina, use o comando `python simulador_pnae.py --teste`.
 
 ## Uso de Inteligência Artificial
 
