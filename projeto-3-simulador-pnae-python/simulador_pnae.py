@@ -7,6 +7,8 @@
 # https://pmc.ncbi.nlm.nih.gov/articles/PMC12448751/
 # É uma referência EXTERNA e HISTÓRICA, não o preço observado na escola em RO em 2026.
 
+import sys
+
 VALOR_CRECHE = 1.57
 VALOR_PRE_ESCOLA = 0.82
 VALOR_FUNDAMENTAL = 0.57
@@ -58,6 +60,37 @@ def calcular_cobertura(totalMatriculas, diasLetivos, custoRefeicao, totalRepasse
         diferenca = custoAnual - totalRepasse
     return custoAnual, cobertura, diferenca
 
+
+# Sem argumentos: roda a escola real do Censo e preserva o print do projeto.
+# --teste: reproduz o exemplo do Projeto 1 (190 alunos, R$ 37.660,00).
+# --interativo: permite informar uma escola e suas matrículas pelo terminal.
+if len(sys.argv) > 1:
+    modo = sys.argv[1]
+    if modo == "--teste":
+        ESCOLA = "EMEB Vila Quitaúna (escola de teste)"
+        CODIGO_INEP = "Não se aplica ao teste"
+        MUNICIPIO = "Osasco"
+        UF = "SP"
+        DEPENDENCIA = "Municipal (exemplo didático)"
+        SITUACAO = "Dados fictícios de teste"
+        MATRICULAS_CRECHE = 60
+        MATRICULAS_PRE_ESCOLA = 80
+        MATRICULAS_FUNDAMENTAL = 50
+    elif modo == "--interativo":
+        print("*** PREENCHIMENTO DOS DADOS DA ESCOLA ***")
+        ESCOLA = input("Nome da escola: ")
+        CODIGO_INEP = input("Código INEP (se souber): ")
+        MUNICIPIO = input("Município: ")
+        UF = input("UF: ")
+        DEPENDENCIA = input("Dependência administrativa: ")
+        SITUACAO = input("Situação de funcionamento: ")
+        DIAS_LETIVOS = ler_numero("Dias letivos: ")
+        MATRICULAS_CRECHE = ler_numero("Matrículas de creche: ")
+        MATRICULAS_PRE_ESCOLA = ler_numero("Matrículas de pré-escola: ")
+        MATRICULAS_FUNDAMENTAL = ler_numero("Matrículas de ensino fundamental: ")
+    else:
+        print("Modo inválido. Use --teste ou --interativo, ou execute sem argumentos.")
+        sys.exit(1)
 
 print("*** SIMULADOR PNAE - CENSO ESCOLAR 2024 ***")
 print("Escola:", ESCOLA)
