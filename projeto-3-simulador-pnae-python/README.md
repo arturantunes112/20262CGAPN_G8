@@ -85,7 +85,11 @@ O programa classifica a escola como **Grande**, com base em faixas provisórias 
 
 ## Prints do resultado
 
-O arquivo `resultado_teste.txt` registra os resultados calculados. **Ainda falta adicionar uma captura real do terminal com o simulador em execução**, como a professora solicita. Quando o print for enviado à pasta do projeto, ele poderá ser incluído aqui no README.
+A imagem abaixo mostra a execução do simulador com a escola real escolhida, incluindo as matrículas, o repasse federal e a estimativa de cobertura dos ingredientes.
+
+![Execução do simulador PNAE para a EMEF Marioma Pereira da Silva](IMG_1799.jpeg)
+
+O arquivo `resultado_teste.txt` também registra os resultados calculados.
 
 ## Uso de Inteligência Artificial
 
