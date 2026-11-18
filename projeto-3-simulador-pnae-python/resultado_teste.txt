@@ -1,1 +1,6 @@
-Censo Escolar 2024: EMEF Marioma Pereira da Silva, INEP 11050594, Alta Floresta D'Oeste/RO, municipal, em atividade. Matrículas: creche 0, pré-escola 0, fundamental 280, total 280. Dias: 200. Repasse federal: R$ 31.920,00. Custo hipotético R$ 1,57/refeição: R$ 87.920,00. Cobertura 36,31%. Complementação R$ 56.000,00. Porte Grande (provisório). Fonte: Censo_2024_Excel.xlsx enviado pelo usuário.
+EMEF Marioma Pereira da Silva | INEP 11050594 | Alta Floresta D'Oeste/RO | Municipal | Em atividade
+Censo Escolar 2024: creche 0, pré-escola 0, fundamental 280, total 280. Dias letivos: 200.
+Repasse PNAE 2026: R$ 0,57/aluno/dia no fundamental; repasse anual R$ 31.920,00.
+Custo de ingredientes por refeição: R$ 4,50 (mediana de refeições, Morro da Fumaça/SC, dados de 2021, Costa et al. 2025, https://pmc.ncbi.nlm.nih.gov/articles/PMC12448751/).
+Custo anual estimado: R$ 252.000,00. Cobertura federal estimada: 12,67%. Complementação estimada: R$ 220.080,00.
+Porte: Grande (critério provisório). Este arquivo registra resultados calculados, não substitui um print real da execução.
