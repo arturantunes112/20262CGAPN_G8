@@ -1,17 +1,20 @@
 # Projeto 3 — Simulador PNAE (versão demonstrativa)
-# Matrículas do exercício; não verificadas no Censo Escolar 2024.
+# Matrículas reais: Censo_2024_Excel.xlsx enviado pelo usuário, Censo 2024.
 # Repasse per capita 2026; custo da refeição hipotético, sem pesquisa de preço.
 VALOR_CRECHE = 1.57
 VALOR_PRE_ESCOLA = 0.82
 VALOR_FUNDAMENTAL = 0.57
 CUSTO_ALIMENTOS_REFEICAO = 1.57  # HIPÓTESE solicitada: igual ao repasse de creche 2026; NÃO é preço pesquisado
-ESCOLA = "EMEB Vila Quitaúna"
-MUNICIPIO = "Osasco"
-UF = "SP"
+ESCOLA = "EMEF MARIOMA PEREIRA DA SILVA"
+CODIGO_INEP = "11050594"
+DEPENDENCIA = "Municipal"
+SITUACAO = "Em atividade"
+MUNICIPIO = "Alta Floresta D'Oeste"
+UF = "RO"
 DIAS_LETIVOS = 200
-MATRICULAS_CRECHE = 60
-MATRICULAS_PRE_ESCOLA = 80
-MATRICULAS_FUNDAMENTAL = 50
+MATRICULAS_CRECHE = 0
+MATRICULAS_PRE_ESCOLA = 0
+MATRICULAS_FUNDAMENTAL = 280
 
 def ler_numero(mensagem):
     while True:
@@ -44,9 +47,12 @@ def calcular_cobertura(totalMatriculas, diasLetivos, custoRefeicao, totalRepasse
         diferenca = custoAnual - totalRepasse
     return custoAnual, cobertura, diferenca
 
-print("*** SIMULADOR PNAE — DADOS DE TESTE ***")
+print("*** SIMULADOR PNAE — CENSO ESCOLAR 2024 ***")
 print("Escola:", ESCOLA)
+print("Código INEP:", CODIGO_INEP)
 print("Município:", MUNICIPIO, "-", UF)
+print("Dependência:", DEPENDENCIA)
+print("Situação:", SITUACAO)
 print("Dias letivos:", DIAS_LETIVOS)
 creche = MATRICULAS_CRECHE
 preEscola = MATRICULAS_PRE_ESCOLA
