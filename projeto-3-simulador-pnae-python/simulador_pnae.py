@@ -1,10 +1,10 @@
 # Projeto 3 — Simulador PNAE (versão demonstrativa)
 # Matrículas do exercício; não verificadas no Censo Escolar 2024.
-# Repasse per capita de 2026. Custo dos ingredientes: referência publicada, mas de outro município/ano.
+# Repasse per capita 2026; custo da refeição hipotético, sem pesquisa de preço.
 VALOR_CRECHE = 1.57
 VALOR_PRE_ESCOLA = 0.82
 VALOR_FUNDAMENTAL = 0.57
-CUSTO_ALIMENTOS_REFEICAO = 4.50  # Mediana de refeições; Costa et al., CSP 2025, dados de 2021, Morro da Fumaça/SC; não é custo local de Osasco
+CUSTO_ALIMENTOS_REFEICAO = 1.57  # HIPÓTESE solicitada: igual ao repasse de creche 2026; NÃO é preço pesquisado
 ESCOLA = "EMEB Vila Quitaúna"
 MUNICIPIO = "Osasco"
 UF = "SP"
@@ -71,7 +71,7 @@ print(f"Creche: R$ {repasseCreche:.2f}")
 print(f"Pré-escola: R$ {repassePreEscola:.2f}")
 print(f"Fundamental: R$ {repasseFundamental:.2f}")
 print(f"REPASSE TOTAL: R$ {totalRepasse:.2f}")
-print("\n*** COBERTURA DOS ALIMENTOS (REFERÊNCIA EXTERNA 2021) ***")
+print("\n*** COBERTURA DOS ALIMENTOS (HIPÓTESE NÃO VALIDADA) ***")
 print(f"Custo por refeição: R$ {CUSTO_ALIMENTOS_REFEICAO:.2f}")
 print(f"Custo anual: R$ {custoAnual:.2f}")
 print(f"Cobertura federal: {cobertura:.2f}%")
