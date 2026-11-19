@@ -87,7 +87,7 @@ No Projeto 1, usamos fórmulas do Excel para calcular o repasse e classificar o 
 
 A função `ler_numero` é utilizada no modo `--interativo` para validar as matrículas e os dias letivos. Na execução padrão, os dados da escola real já estão preenchidos.
 
-O programa classifica a escola real como **Grande** e o exemplo de 190 matrículas como **Pequena**, com base nas faixas usadas no código: Micro até 50 alunos, Pequena de 51 a 200 e Grande acima de 200. **Essas faixas ainda devem ser confirmadas com os critérios apresentados em aula.**
+O programa classifica a escola real como **Grande** e o exemplo de 190 matrículas como **Pequena**, com base nas faixas usadas no código: Micro até 50 alunos, Pequena de 51 a 200 e Grande acima de 200. **Atenção:** essas faixas são critérios operacionais da simulação, não uma classificação oficial do INEP. Caso a disciplina tenha definido limites específicos, eles devem prevalecer e ser ajustados no código antes da entrega.
 
 ## Prints do resultado
 
@@ -98,7 +98,17 @@ A imagem abaixo mostra a execução do simulador com a escola real escolhida, in
 O arquivo `resultado_teste.txt` também registra os resultados calculados. Para verificar o exemplo original da disciplina, use o comando `python simulador_pnae.py --teste`.
 
 
-## Fonte de Dados
+## Uso de Inteligência Artificial (disclaimer)
+
+**Ferramenta utilizada:** ChatGPT (OpenAI).
+
+**Como foi utilizada:** apoio à revisão e correção do código Python, à organização dos modos de execução e à estruturação e revisão do README. O uso de IA foi de apoio ao desenvolvimento e à documentação; a escolha da escola, a interpretação dos resultados e a conferência dos dados devem ser validadas pelo grupo.
+
+**Exemplo de solicitação feita à IA:** “corrija o código”.
+
+**Limites:** os dados de matrículas e os valores citados são atribuídos às fontes identificadas abaixo, e não à IA. Os resultados são simulações, não registros de despesa efetiva.
+
+## Fonte de Dados (disclaimer)
 
 As informações da escola e das matrículas vieram do **Censo Escolar 2024 (INEP)**, por meio da planilha `Censo_2024_Excel.xlsx`. Esses dados identificam a unidade escolar, sua localização, sua dependência administrativa, sua situação de funcionamento e o número de matrículas.
 
@@ -108,7 +118,7 @@ As informações da escola e das matrículas vieram do **Censo Escolar 2024 (INE
 
 Na planilha do Censo, utilizamos principalmente os campos `CO_ENTIDADE` (código INEP), `NO_ENTIDADE` (nome), `NO_MUNICIPIO` (município), `SG_UF` (estado), `TP_DEPENDENCIA` (rede responsável), `TP_SITUACAO_FUNCIONAMENTO` (situação da escola), `QT_MAT_INF` (matrículas na educação infantil), `QT_MAT_FUND` (matrículas no ensino fundamental) e `QT_MAT_BAS` (matrículas da educação básica).
 
-## Participação do Grupo
+## Participação do Grupo (disclaimer)
 
 O projeto nos ajudou a praticar a programação em Python e a perceber como dados públicos podem ser utilizados para analisar situações concretas da administração pública. Também aprendemos a organizar os cálculos e a explicar suas limitações.
 
@@ -118,4 +128,4 @@ De acordo com a divisão de tarefas informada:
 - **José Ronaldo:** vídeo e capturas de tela.
 - **Valentina e Albert:** apoio na organização do GitHub.
 
-**Os integrantes devem confirmar essa divisão e revisar o material antes da entrega.**
+**Observação:** a divisão de tarefas acima é a registrada na documentação do Projeto 3; o grupo deve validá-la antes da entrega.
