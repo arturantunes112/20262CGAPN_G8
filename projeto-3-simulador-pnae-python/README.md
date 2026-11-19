@@ -97,13 +97,6 @@ A imagem abaixo mostra a execução do simulador com a escola real escolhida, in
 
 O arquivo `resultado_teste.txt` também registra os resultados calculados. Para verificar o exemplo original da disciplina, use o comando `python simulador_pnae.py --teste`.
 
-## Uso de Inteligência Artificial
-
-Utilizamos o **ChatGPT (OpenAI)** para ajudar na revisão do código, na conferência dos dados da escola, na busca de uma referência para o custo dos alimentos e na organização deste README. Também usamos a ferramenta para atualizar os arquivos no GitHub.
-
-Alguns exemplos reais de pedidos feitos foram: **“veja os dados das escolas escolha uma e coloque no codigo”**, **“atualize o que for necessario no github”** e **“faça como a professora pede”**.
-
-Ao longo do processo, pedimos alterações para usar uma escola real, corrigir os valores do simulador e deixar a documentação mais clara. **O grupo ainda precisa conferir a versão final e registrar os ajustes manuais efetivamente realizados pelos integrantes antes da entrega.**
 
 ## Fonte de Dados
 
