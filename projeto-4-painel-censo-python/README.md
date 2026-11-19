@@ -1,44 +1,24 @@
 # Projeto 4 — Painel Interativo do Censo Escolar em Python
 
 ## Objetivo
-Painel interativo com escolas em atividade de 30 municípios de quatro regiões paulistas, baseado no recorte do Censo Escolar 2024. Permite comparar matrículas, características, infraestrutura e localização geográfica.
+Analisar escolas em atividade de **30 municípios de quatro regiões de São Paulo**, a partir de um recorte do Censo Escolar 2024, por meio de um painel interativo em Python.
 
-## Como usar
-Coloque `painel.py` e `escolas_sp_regioes_2024_geo.csv` na mesma pasta. Execute:
+## Como executar
+Mantenha `painel.py` e `escolas_sp_regioes_2024_geo.csv` na mesma pasta. No terminal, execute:
+
 ```bash
 python -m pip install pandas streamlit
 python -m streamlit run painel.py
 ```
-Escolha a região e o município. Indicadores, gráficos, mapa e lista mudam com os filtros.
 
-## Elementos do painel
-| Elemento | Coluna |
-| --- | --- |
-| Filtros | `regiao`, `municipio` |
-| Indicadores | contagem de escolas; soma de `matriculas` |
-| Características | `porte` (calculado de `matriculas`), `dependencia` |
-| Infraestrutura | `agua`, `energia` |
-| Mapa | `latitude`, `longitude` |
-| Lista | `regiao`, `municipio`, `escola`, `dependencia`, `matriculas`, `porte` |
+## Funcionalidades e resultados
+O painel permite filtrar **região e município** e atualiza automaticamente indicadores de escolas e matrículas, gráficos de porte, dependência administrativa, água e energia, além do mapa e da tabela de escolas.
 
-**Classificação de porte adotada neste painel:** Pequena (até 200 matrículas), Média (201–400) e Grande (mais de 400). São faixas operacionais definidas no código para fins de visualização; não devem ser interpretadas como classificação oficial do INEP.
+O porte é definido no código para visualização: **Pequena** (até 200 matrículas), **Média** (201 a 400) e **Grande** (acima de 400); não é classificação oficial do INEP.
 
-## Interpretação dos resultados
-Os filtros de região e município são combinados: ao selecionar uma região, a lista de municípios passa a considerar apenas as escolas dessa região. Os indicadores, gráficos, mapa e tabela são recalculados para o subconjunto selecionado. Os gráficos mostram contagens de escolas por porte, dependência administrativa, abastecimento de água e fonte de energia; o mapa mostra somente escolas com coordenadas disponíveis.
+No recorte analisado, a Região Metropolitana de São Paulo apresenta **1.263 escolas e 572.377 matrículas**, enquanto o Vale do Ribeira apresenta **338 escolas e 63.777 matrículas**. Os resultados dizem respeito apenas à base utilizada, não ao estado inteiro.
 
-## O que o painel mostra
-Na base da disciplina, a Região Metropolitana de SP tem 1.263 escolas e 572.377 matrículas; o Vale do Ribeira tem 338 escolas e 63.777 matrículas. O recorte não cobre todo o estado.
-
-## Organização do programa
-| Python | Equivalente no Projeto 2 |
-| --- | --- |
-| `classifica_porte` | coluna calculada |
-| `pd.read_csv` | importação da base |
-| `st.selectbox` | segmentações |
-| `st.metric` | indicadores |
-| `st.bar_chart` | gráficos dinâmicos |
-| `st.map` | mapa de escolas |
-| `st.dataframe` | tabela filtrada |
+**Reflexão:** os filtros e gráficos ajudam a comparar as características das escolas entre regiões e municípios. A ausência de coordenadas em algumas unidades pode limitar sua exibição no mapa.
 
 ## Prints do resultado
 
@@ -87,6 +67,7 @@ As capturas abaixo registram a execução do painel em dois momentos, com difere
 **Captura 10**
 
 ![Captura do painel 10](<Captura de tela 2026-11-19 110444.png>)
+
 
 
 ## Uso de Inteligência Artificial (disclaimer)
