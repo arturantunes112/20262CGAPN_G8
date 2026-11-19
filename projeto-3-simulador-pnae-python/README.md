@@ -87,7 +87,7 @@ No Projeto 1, usamos fórmulas do Excel para calcular o repasse e classificar o 
 
 A função `ler_numero` é utilizada no modo `--interativo` para validar as matrículas e os dias letivos. Na execução padrão, os dados da escola real já estão preenchidos.
 
-O programa classifica a escola real como **Grande** e o exemplo de 190 matrículas como **Pequena**, com base nas faixas usadas no código: Micro até 50 alunos, Pequena de 51 a 200 e Grande acima de 200. **Atenção:** essas faixas são critérios operacionais da simulação, não uma classificação oficial do INEP. Caso a disciplina tenha definido limites específicos, eles devem prevalecer e ser ajustados no código antes da entrega.
+O programa classifica a escola real como **Grande** e o exemplo de 190 matrículas como **Pequena**, com base nas faixas usadas no código: Micro até 50 alunos, Pequena de 51 a 200 e Grande acima de 200. **Critério utilizado:** essas faixas são as regras adotadas no simulador do grupo. As orientações escritas do Projeto 3 exigem que o exemplo com 190 matrículas seja classificado como **Pequena**, mas não especificam todos os limites das faixas. Portanto, não apresentamos os limites como uma classificação oficial do INEP.
 
 ## Prints do resultado
 
@@ -105,6 +105,8 @@ O arquivo `resultado_teste.txt` também registra os resultados calculados. Para 
 **Como foi utilizada:** apoio à revisão e correção do código Python, à organização dos modos de execução e à estruturação e revisão do README. O uso de IA foi de apoio ao desenvolvimento e à documentação; a escolha da escola, a interpretação dos resultados e a conferência dos dados devem ser validadas pelo grupo.
 
 **Exemplo de solicitação feita à IA:** “corrija o código”.
+
+**Conferência e ajustes realizados durante o desenvolvimento:** adaptação do exemplo didático para uma escola real, parametrização dos valores por etapa e do custo dos ingredientes, inclusão dos modos de teste e interativo, testes de execução e revisão da documentação. A equipe deve confirmar que essa descrição corresponde ao trabalho realizado por seus integrantes.
 
 **Limites:** os dados de matrículas e os valores citados são atribuídos às fontes identificadas abaixo, e não à IA. Os resultados são simulações, não registros de despesa efetiva.
 
