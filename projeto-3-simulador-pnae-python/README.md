@@ -102,11 +102,10 @@ O arquivo `resultado_teste.txt` também registra os resultados calculados. Para 
 
 **Ferramenta utilizada:** ChatGPT (OpenAI).
 
-**Como foi utilizada:** apoio à revisão e correção do código Python, à organização dos modos de execução e à estruturação e revisão do README. O uso de IA foi de apoio ao desenvolvimento e à documentação; a escolha da escola, a interpretação dos resultados e a conferência dos dados devem ser validadas pelo grupo.
+**Como foi utilizada:** apoio à revisão e correção do código Python, à organização dos modos de execução e à estruturação e
 
-**Exemplo de solicitação feita à IA:** “corrija o código”.
 
-**Conferência e ajustes realizados durante o desenvolvimento:** adaptação do exemplo didático para uma escola real, parametrização dos valores por etapa e do custo dos ingredientes, inclusão dos modos de teste e interativo, testes de execução e revisão da documentação. A equipe deve confirmar que essa descrição corresponde ao trabalho realizado por seus integrantes.
+
 
 **Limites:** os dados de matrículas e os valores citados são atribuídos às fontes identificadas abaixo, e não à IA. Os resultados são simulações, não registros de despesa efetiva.
 
