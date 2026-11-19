@@ -95,7 +95,6 @@ As capturas abaixo registram a execução do painel em dois momentos, com difere
 
 **Como foi utilizada:** apoio à revisão do código em Python, à organização das funcionalidades do painel e à redação e formatação da documentação do projeto. O uso da ferramenta não substitui a conferência dos resultados nem os testes realizados pelo grupo.
 
-**Exemplo de solicitação feita à IA:** “me dê o passo a passo para fazer o código funcionar”.
 
 **Verificação:** o painel foi executado no Anaconda Prompt e os filtros foram testados; as capturas publicadas documentam diferentes seleções. Os dados não foram gerados pela IA.
 
