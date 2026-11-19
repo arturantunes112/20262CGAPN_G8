@@ -55,4 +55,8 @@ Na base da disciplina, a Região Metropolitana de SP tem 1.263 escolas e 572.377
 ## Participação do Grupo
 **Aprendizado:** filtragem e análise de dados com pandas e criação de dashboard com Streamlit.  
 **Integrantes:** Albert, Artur, Frederico, José Ronaldo, Rogério e Valentina.  
-**Papel de cada integrante:** pendente de confirmação pelo grupo; não atribuir tarefas sem confirmação.
+**Papel de cada integrante:**
+- **Artur:** desenvolvimento dos códigos e elaboração de parte do README.
+- **Valentina:** produção dos prints e elaboração do README.
+- **Frederico:** apoio no desenvolvimento dos códigos.
+- **Rogério, Albert e José Ronaldo:** organização e publicação dos arquivos no GitHub.
