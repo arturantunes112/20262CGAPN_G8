@@ -38,7 +38,52 @@ Na base da disciplina, a Região Metropolitana de SP tem 1.263 escolas e 572.377
 | `st.dataframe` | tabela filtrada |
 
 ## Prints do resultado
-**Pendente:** adicionar dois prints reais do painel, com combinações diferentes dos filtros (por exemplo, todas as regiões e Vale do Ribeira).
+
+As capturas abaixo registram a execução do painel em dois momentos, com diferentes seleções de filtros. As imagens estão mantidas com seus nomes originais para preservar os arquivos já enviados ao GitHub.
+
+### Primeira sequência de capturas
+
+**Captura 1**
+
+![Captura do painel 1](<Captura de tela 2026-11-19 101355.png>)
+
+**Captura 2**
+
+![Captura do painel 2](<Captura de tela 2026-11-19 101411.png>)
+
+**Captura 3**
+
+![Captura do painel 3](<Captura de tela 2026-11-19 101438.png>)
+
+**Captura 4**
+
+![Captura do painel 4](<Captura de tela 2026-11-19 101449.png>)
+
+### Segunda sequência de capturas
+
+**Captura 5**
+
+![Captura do painel 5](<Captura de tela 2026-11-19 110248.png>)
+
+**Captura 6**
+
+![Captura do painel 6](<Captura de tela 2026-11-19 110320.png>)
+
+**Captura 7**
+
+![Captura do painel 7](<Captura de tela 2026-11-19 110328.png>)
+
+**Captura 8**
+
+![Captura do painel 8](<Captura de tela 2026-11-19 110431.png>)
+
+**Captura 9**
+
+![Captura do painel 9](<Captura de tela 2026-11-19 110439.png>)
+
+**Captura 10**
+
+![Captura do painel 10](<Captura de tela 2026-11-19 110444.png>)
 
 ## Uso de Inteligência Artificial
 **Ferramenta:** ChatGPT (OpenAI).  
