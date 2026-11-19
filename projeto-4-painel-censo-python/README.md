@@ -85,11 +85,6 @@ As capturas abaixo registram a execução do painel em dois momentos, com difere
 
 ![Captura do painel 10](<Captura de tela 2026-11-19 110444.png>)
 
-## Uso de Inteligência Artificial
-**Ferramenta:** ChatGPT (OpenAI).  
-**Uso:** revisão do código da Aula 21, novos filtros e gráficos, organização da documentação.  
-**Exemplo de prompt real:** “o que vc precisa para concluirt tudo”.  
-**Ajustes manuais:** a equipe deve registrar os ajustes que realmente fizer após testar o painel.
 
 ## Fonte de Dados
 **Fonte oficial:** Censo Escolar 2024, INEP.  
